@@ -1,0 +1,238 @@
+@font-face {
+  font-family: LatoRegular;
+  src: url(../fonts/Lato-Regular.ttf);
+}
+@font-face {
+  font-family: LatoLight;
+  src: url(../fonts/Lato-Light.ttf);
+}
+@font-face {
+  font-family: LatoBold;
+  src: url(../fonts/Lato-Bold.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: 16px/1.4 LatoRegular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #00629B; /* Determines color of links in left panel */
+  /* color: #39c; */
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #222;
+  margin: 0 0 20px;
+}
+
+p {
+  line-height: 1.4;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+body {
+  padding-top: 9vh;
+}
+body nav {
+  padding-top: 9vh;
+  width: 530px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  padding-left: 13vw;
+  overflow: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+@media screen and (max-width: 1165px) {
+  body nav {
+    overflow: hidden;
+    height: 120vh;
+    width: 100%;
+    padding-top: 0;
+  }
+}
+body nav nav::-webkit-scrollbar {
+  display: none;
+}
+@media screen and (max-width: 1165px) {
+  body nav {
+    position: static;
+  }
+}
+body nav div {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+body nav div .container {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+body nav div .container .prof-pic {
+  border-radius: 50%;
+  width: 200px;
+  height: 270px;
+}
+body nav div .container .status {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  line-height: 1.4;
+  color: #00629B;    /* Determines color of "contact: wmullins at ...etc" */
+  /* color: #777; */
+  font-size: 1 rem;
+  font-family: LatoLight;
+}
+body nav div .container .univer-logo {
+  width: 150px;
+  margin-bottom: 20px;
+}
+body nav div .container h1 {
+  width: 250px;
+  font-size: 2rem;
+  font-family: LatoBold;
+}
+body nav div .container span {
+  font-size: 16px;
+  font-family: LatoLight;
+  color: #777;   /* Determines color of "Assistant Professor of Finance" */
+  margin-bottom: 20px;
+}
+body nav div .container ul li {
+  margin-bottom: 20px;
+}
+body nav div .container ul li a {
+  font-size: 1rem;
+  font-family: LatoLight;
+}
+body nav div .container ul li a:hover {
+  background-color: black;
+  color: white;
+}
+body main {
+  float: right;
+  width: 60%;
+  padding-right: 16%;
+}
+@media screen and (max-width: 1165px) {
+  body main {
+    float: none;
+    width: 75%;
+    margin: 0 auto;
+  }
+}
+body main h3 {
+  font-size: 1.1rem;
+  color: #444;   /* Determines color of section headers: "Working papers" "Publications" "Other Publications" */
+  margin-bottom: 20px;
+  font-family: LatoBold;
+}
+body main ul {
+  list-style: circle;
+  color: #777;   /* Determines color of non-link text of "Best paper prize... etc" */
+  margin: 20px 20px 20px 40px;
+}
+body main ul li {
+  font-size: 0.9rem;
+  font-family: LatoLight;
+}
+body main ul li a {
+  font-size: 0.9rem;
+  font-family: LatoLight;
+}
+body main p > span > a {
+  color: #39c;  /* Determines color of underlined paper hyperlinks  */
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  font-style: italic;
+  font-family: LatoBold;
+}
+body main .title {
+  color: #00629B;  /* Main text color */
+/* color: #5f83ff; 
+   color: #0D3AA9; 
+   color: #39C; ORIGINAL ONE! */
+  font-size: 0.9rem;
+  font-family: LatoBold;
+}
+body main .last {
+  margin-bottom: 20px;
+}
+body main .text {
+  font-size: 0.9rem;
+  color: #777;   /* Determines colors of non-underlined text in (with XXX and YYY) */
+  margin-bottom: 20px;
+  font-family: LatoLight;
+}
+body main .text .special-link {
+  text-decoration: none;
+  font-style: normal;
+  background-color: #f8f8f8;
+  color: #111;   /* Determines colors inside the grey boxes */
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: LatoLight;
+}
+body main .text .special-link.btn::before {
+  content: "[+]";
+}
+body main .text .special-link.btn.minus::before {
+  content: "[-]";
+}
+body main .text .abs-text {
+  margin-top: 20px;
+  display: none;
+  background-color: #f1f1f1;
+  padding: 10px;
+  color: #000000;  /* Determines Abstract text color */
+  font-size: 0.9rem;
+  font-family: LatoLight;
+}
+body main .text .abs-text.show {
+  display: block;
+}
+body main .text a {
+  /* text-decoration: underline; */
+  font-size: 0.9rem;
+  font-style: italic;
+  color: rgb(85, 85, 249);   /* Determines color of coauthor names ; */
+  font-family: LatoLight;
+}/*# sourceMappingURL=style.css.map */
