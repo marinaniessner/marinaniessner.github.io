@@ -10,6 +10,10 @@
   font-family: LatoBold;
   src: url(../fonts/Lato-Bold.ttf);
 }
+@font-face {
+  font-family: OpenSansHebrewLight;
+  src: url(../fonts/OpenSansHebrewCondensed-Light.ttf);
+}
 * {
   margin: 0;
   padding: 0;
@@ -214,7 +218,7 @@ body main .bio {
   color: #4c4c4c;   /* Determines colors of non-underlined text in (with XXX and YYY) */
   margin-bottom: 20px;
   font-style: bold;
-  font-family: LatoBold;
+  font-family: OpenSansHebrewLight;
 }
 body main .text .special-link {
   text-decoration: none;
