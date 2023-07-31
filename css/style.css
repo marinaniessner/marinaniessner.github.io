@@ -106,7 +106,7 @@ body nav div .container {
 }
 body nav div .container .prof-pic {
   border-radius: 50%;
-  width: 200px;
+  width: 220px;
   height: 270px;
 }
 body nav div .container .status {
@@ -120,7 +120,7 @@ body nav div .container .status {
   font-family: LatoLight;
 }
 body nav div .container .univer-logo {
-  width: 150px;
+  width: 220px;
   margin-bottom: 20px;
 }
 body nav div .container h1 {
@@ -138,7 +138,7 @@ body nav div .container ul li {
   margin-bottom: 20px;
 }
 body nav div .container ul li a {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-family: LatoLight;
 }
 body nav div .container ul li a:hover {
@@ -158,9 +158,10 @@ body main {
   }
 }
 body main h3 {
-  font-size: 1.1rem;
+  font-size: 1.6rem;
   color: #444;   /* Determines color of section headers: "Working papers" "Publications" "Other Publications" */
   margin-bottom: 20px;
+  margin-top: 20px;
   font-family: LatoBold;
 }
 body main ul {
@@ -189,17 +190,31 @@ body main .title {
 /* color: #5f83ff; 
    color: #0D3AA9; 
    color: #39C; ORIGINAL ONE! */
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-family: LatoBold;
 }
 body main .last {
   margin-bottom: 20px;
 }
 body main .text {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #777;   /* Determines colors of non-underlined text in (with XXX and YYY) */
   margin-bottom: 20px;
   font-family: LatoLight;
+}
+body main .journal {
+  font-size: 1rem;
+  color: #4c4c4c;   /* Determines colors of non-underlined text in (with XXX and YYY) */
+  margin-bottom: 20px;
+  font-style: bold;
+  font-family: LatoLight;
+}
+body main .bio {
+  font-size: 1.3rem;
+  color: #4c4c4c;   /* Determines colors of non-underlined text in (with XXX and YYY) */
+  margin-bottom: 20px;
+  font-style: bold;
+  font-family: LatoBold;
 }
 body main .text .special-link {
   text-decoration: none;
