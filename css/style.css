@@ -1,264 +1,519 @@
-@font-face {
-  font-family: LatoRegular;
-  src: url(../fonts/Lato-Regular.ttf);
-}
-@font-face {
-  font-family: LatoLight;
-  src: url(../fonts/Lato-Light.ttf);
-}
-@font-face {
-  font-family: LatoBold;
-  src: url(../fonts/Lato-Bold.ttf);
-}
-@font-face {
-  font-family: OpenSansHebrewLight;
-  src: url(../fonts/OpenSansHebrewCondensed-Light.ttf);
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font: 16px/1.4 LatoRegular, "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
+/* ==========================================================================
+   marinaniessner.com — stylesheet
+   One accent colour (#00629B), Lato Regular for body text, Lato Light only
+   for captions. Two columns on desktop (identity left, content right); the
+   left column collapses into a compact header on phones.
+   ========================================================================== */
 
-html {
-  overflow: scroll;
-  overflow-x: hidden;
-}
-
-::-webkit-scrollbar {
-  width: 0; /* Remove scrollbar space */
-  background: transparent; /* Optional: just make scrollbar invisible */
-}
-
-ul {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: #00629B; /* Determines color of links in left panel */
-  /* color: #39c; */
+/* ---- Fonts ------------------------------------------------------------- */
+@font-face {
+  font-family: "Lato";
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url(../fonts/Lato-Regular.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Lato";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url(../fonts/Lato-Bold.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Lato";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url(../fonts/Lato-Light.woff2) format("woff2");
 }
 
+/* ---- Design tokens ------------------------------------------------------ */
+:root {
+  --accent: #00629b;
+  --accent-dark: #004a75;
+  --accent-soft: #e8f1f7;
+  --text: #333;
+  --text-strong: #1f1f1f;
+  --muted: #666;
+  --rule: #e4e7ea;
+  --panel: #f5f7f9;
+  --font: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --sidebar-w: 270px;
+  --gutter: 24px;
+}
+
+/* ---- Reset (minimal) ---------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+body,
 h1,
 h2,
 h3,
 h4,
-h5,
-h6 {
-  color: #222;
-  margin: 0 0 20px;
+p,
+ul,
+ol,
+figure {
+  margin: 0;
+}
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover,
+a:focus-visible {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 28px 0;
 }
 
-p {
-  line-height: 1.4;
+/* ---- Base typography ---------------------------------------------------- */
+body {
+  font: 400 16px/1.5 var(--font);
+  color: var(--text);
+  background: #fff;
 }
-
 h1,
 h2,
-h3 {
-  line-height: 1.1;
+h3,
+h4 {
+  color: var(--text-strong);
+  font-weight: 700;
+  line-height: 1.2;
+}
+p {
+  margin-bottom: 1em;
+}
+strong {
+  font-weight: 700;
+}
+.caption {
+  font-weight: 300;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
-h1 {
-  font-size: 28px;
-}
-
+/* ---- Page layout -------------------------------------------------------- */
 body {
-  padding-top: 9vh;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: grid;
+  grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+  column-gap: 72px;
 }
-body nav {
-  padding-top: 9vh;
-  width: 530px;
-  height: 100vh;
-  position: fixed;
+
+/* ---- Left column: identity --------------------------------------------- */
+.sidebar {
+  position: sticky;
   top: 0;
-  left: 0;
-  display: flex;
-  padding-left: 13vw;
-  overflow: auto;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  align-self: start;
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: 56px 0 32px;
+  scrollbar-width: none;
 }
-@media screen and (max-width: 1165px) {
-  body nav {
-    overflow: hidden;
-    height: 120vh;
-    width: 100%;
-    padding-top: 0;
-  }
-}
-body nav nav::-webkit-scrollbar {
+.sidebar::-webkit-scrollbar {
   display: none;
 }
-@media screen and (max-width: 1165px) {
-  body nav {
-    position: static;
-  }
+.sidebar h1 {
+  font-size: 1.75rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
 }
-body nav div {
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-}
-body nav div .container {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-body nav div .container .prof-pic {
-  border-radius: 50%;
-  width: 220px;
-  height: 270px;
-}
-body nav div .container .status {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  width: 100%;
+.sidebar .role {
+  display: block;
+  color: var(--muted);
+  font-size: 0.95rem;
   line-height: 1.4;
-  color: #00629B;    /* Determines color of "contact: wmullins at ...etc" */
-  /* color: #777; */
-  font-size: 1 rem;
-  font-family: LatoLight;
+  margin-bottom: 28px;
 }
-body nav div .container .univer-logo {
-  width: 220px;
-  margin-bottom: 20px;
+.site-nav li + li {
+  margin-top: 10px;
 }
-body nav div .container h1 {
-  width: 250px;
-  font-size: 2rem;
-  font-family: LatoBold;
+.site-nav a {
+  font-size: 1.05rem;
+  display: inline-block;
+  padding: 2px 0;
+  border-bottom: 2px solid transparent;
 }
-body nav div .container span {
-  font-size: 16px;
-  font-family: LatoLight;
-  color: #777;   /* Determines color of "Assistant Professor of Finance" */
-  margin-bottom: 20px;
-}
-body nav div .container ul li {
-  margin-bottom: 20px;
-}
-body nav div .container ul li a {
-  font-size: 1.2rem;
-  font-family: LatoLight;
-}
-body nav div .container ul li a:hover {
-  background-color: black;
-  color: white;
-}
-body main {
-  float: right;
-  width: 60%;
-  padding-right: 16%;
-}
-@media screen and (max-width: 1165px) {
-  body main {
-    float: none;
-    width: 75%;
-    margin: 0 auto;
-  }
-}
-body main h3 {
-  font-size: 1.6rem;
-  color: #444;   /* Determines color of section headers: "Working papers" "Publications" "Other Publications" */
-  margin-bottom: 20px;
-  margin-top: 20px;
-  font-family: LatoBold;
-}
-body main ul {
-  list-style: circle;
-  color: #777;   /* Determines color of non-link text of "Best paper prize... etc" */
-  margin: 20px 20px 20px 40px;
-}
-body main ul li {
-  font-size: 0.9rem;
-  font-family: LatoLight;
-}
-body main ul li a {
-  font-size: 0.9rem;
-  font-family: LatoLight;
-}
-body main p > span > a {
-  color: #39c;  /* Determines color of underlined paper hyperlinks  */
-  font-weight: bold;
-  font-size: 0.9rem;
-  text-decoration: underline;
-  font-style: italic;
-  font-family: LatoBold;
-}
-body main .title {
-  color: #00629B;  /* Main text color */
-/* color: #5f83ff; 
-   color: #0D3AA9; 
-   color: #39C; ORIGINAL ONE! */
-  font-size: 1.1rem;
-  font-family: LatoBold;
-}
-body main .last {
-  margin-bottom: 20px;
-}
-body main .text {
-  font-size: 1rem;
-  color: #777;   /* Determines colors of non-underlined text in (with XXX and YYY) */
-  margin-bottom: 20px;
-  font-family: LatoLight;
-}
-body main .journal {
-  font-size: 1rem;
-  color: #4c4c4c;   /* Determines colors of non-underlined text in (with XXX and YYY) */
-  margin-bottom: 20px;
-  font-style: bold;
-  font-family: LatoLight;
-}
-body main .bio {
-  font-size: 1.3rem;
-  color: #4c4c4c;   /* Determines colors of non-underlined text in (with XXX and YYY) */
-  margin-bottom: 20px;
-  font-style: bold;
-  font-family: OpenSansHebrewLight;
-}
-body main .bio_link {
-  font-size: 1.3rem;
-  color: #4c4c4c;   /* Determines colors of non-underlined text in (with XXX and YYY) */
-  margin-bottom: 20px;
-  font-style: bold;
-  font-family: OpenSansHebrewLight;
-}
-body main .text .special-link {
+.site-nav a:hover,
+.site-nav a:focus-visible {
   text-decoration: none;
+  border-bottom-color: var(--accent);
+}
+.site-nav a[aria-current="page"] {
+  color: var(--text-strong);
+  font-weight: 700;
+  border-bottom-color: var(--accent);
+}
+.prof-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 15%;
+  margin: 36px 0 20px;
+}
+.contact {
+  font-size: 0.95rem;
+  margin-bottom: 28px;
+  word-break: break-word;
+}
+.contact a {
+  color: var(--accent);
+}
+.univer-logo {
+  width: 200px;
+}
+
+/* ---- Right column: content --------------------------------------------- */
+main {
+  padding: 56px 0 72px;
+  min-width: 0;
+}
+main > h2:first-child,
+.page-title {
+  margin-top: 0;
+}
+.intro {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.section-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  font-size: 0.9rem;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 8px;
+}
+.section-links a {
+  color: var(--muted);
+}
+.section-links a:hover {
+  color: var(--accent);
+}
+h2 {
+  font-size: 1.35rem;
+  margin: 44px 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+h3 {
+  font-size: 1.05rem;
+  margin: 24px 0 8px;
+}
+.prose p {
+  max-width: 68ch;
+}
+.prose ul {
+  list-style: disc;
+  padding-left: 1.3em;
+  margin-bottom: 1em;
+}
+.prose li {
+  margin-bottom: 0.35em;
+}
+
+/* ---- Paper blocks ------------------------------------------------------- */
+.paper {
+  margin-bottom: 26px;
+}
+.paper-title {
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+.paper-title a {
+  color: var(--accent);
+}
+.paper-authors {
+  color: var(--text);
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+.paper-meta {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+}
+.paper-meta .venue {
+  font-style: italic;
+}
+.paper-meta .venue a {
+  color: var(--muted);
+}
+.paper-meta .venue a:hover {
+  color: var(--accent);
+}
+.tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  background: var(--accent-soft);
+  border-radius: 3px;
+  padding: 2px 7px;
+  line-height: 1.4;
   font-style: normal;
-  background-color: #f8f8f8;
-  color: #111;   /* Determines colors inside the grey boxes */
-  border: none;
+}
+.paper-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+/* Small buttons: SSRN / journal / data links and the Abstract toggle share one style */
+.btn,
+.abstract > summary {
+  display: inline-block;
+  font: 700 0.78rem/1.2 var(--font);
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  background: #fff;
+  border: 1px solid #c9d6e0;
+  border-radius: 4px;
+  padding: 5px 10px;
   cursor: pointer;
-  font-size: 0.9rem;
-  font-family: LatoLight;
+  text-decoration: none;
+  white-space: nowrap;
 }
-body main .text .special-link.btn::before {
-  content: "[+]";
+.btn:hover,
+.btn:focus-visible,
+.abstract > summary:hover,
+.abstract > summary:focus-visible {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent-dark);
+  text-decoration: none;
 }
-body main .text .special-link.btn.minus::before {
-  content: "[-]";
+.abstract {
+  display: contents; /* the summary sits in the button row; the text drops below */
 }
-body main .text .abs-text {
-  margin-top: 20px;
+.abstract > summary {
+  list-style: none;
+}
+.abstract > summary::-webkit-details-marker {
   display: none;
-  background-color: #f1f1f1;
-  padding: 10px;
-  color: #000000;  /* Determines Abstract text color */
-  font-size: 0.9rem;
-  font-family: LatoLight;
 }
-body main .text .abs-text.show {
+.abstract > summary::before {
+  content: "+";
+  display: inline-block;
+  width: 1em;
+  font-weight: 700;
+}
+.abstract[open] > summary::before {
+  content: "–";
+}
+.abstract[open] > summary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.abstract > p {
+  flex-basis: 100%;
+  width: 100%;
+  margin: 6px 0 0;
+  padding: 12px 16px;
+  background: var(--panel);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 4px 4px 0;
+  font-size: 0.93rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+/* ---- Press & teaching lists --------------------------------------------- */
+.press-list li,
+.teaching-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.95rem;
+}
+.press-list li:last-child,
+.teaching-list li:last-child {
+  border-bottom: 0;
+}
+.press-list .outlet,
+.teaching-list .school {
+  font-weight: 700;
+  color: var(--text-strong);
+}
+.press-list .headline {
   display: block;
 }
-body main .text a {
-  /* text-decoration: underline; */
-  font-size: 0.9rem;
-  font-style: italic;
-  color: rgb(85, 85, 249);   /* Determines color of coauthor names ; */
-  font-family: LatoLight;
-}/*# sourceMappingURL=style.css.map */
+.teaching-list .courses {
+  display: block;
+  color: var(--text);
+}
+
+/* ---- Data page ---------------------------------------------------------- */
+.data-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 18px;
+}
+.cite {
+  padding-left: 14px;
+  border-left: 3px solid var(--rule);
+  margin: 8px 0 18px;
+  font-size: 0.95rem;
+}
+
+/* ---- Footer (mobile-only logo / contact live in header on phones) ------- */
+.page-foot {
+  margin-top: 48px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   Responsive: tablets and phones. The sidebar becomes a compact header:
+   small round photo, name and title side by side, nav as a row of links.
+   ========================================================================== */
+@media (max-width: 860px) {
+  body {
+    display: block;
+    padding: 0 16px;
+  }
+  .sidebar {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding: 20px 0 16px;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    grid-template-areas:
+      "pic name"
+      "pic role"
+      "nav nav"
+      "contact contact";
+    column-gap: 14px;
+    align-items: center;
+  }
+  .sidebar h1 {
+    grid-area: name;
+    font-size: 1.35rem;
+    margin: 0;
+    align-self: end;
+  }
+  .sidebar .role {
+    grid-area: role;
+    font-size: 0.85rem;
+    margin: 2px 0 0;
+    align-self: start;
+  }
+  .sidebar .role br {
+    display: none;
+  }
+  .sidebar .role .sep {
+    display: inline;
+  }
+  .prof-pic {
+    grid-area: pic;
+    width: 64px;
+    height: 64px;
+    margin: 0;
+  }
+  .site-nav {
+    grid-area: nav;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 18px;
+    margin-top: 14px;
+  }
+  .site-nav li + li {
+    margin-top: 0;
+  }
+  .site-nav a {
+    font-size: 0.98rem;
+  }
+  .contact {
+    grid-area: contact;
+    font-size: 0.85rem;
+    margin: 10px 0 0;
+  }
+  .univer-logo {
+    display: none; /* shown in the page footer instead */
+  }
+  .page-foot .univer-logo {
+    display: block;
+    width: 150px;
+    margin-top: 8px;
+  }
+  main {
+    padding: 24px 0 48px;
+  }
+  .intro {
+    font-size: 1rem;
+  }
+  h2 {
+    margin-top: 32px;
+  }
+  .prof-pic + .contact {
+    margin-top: 10px;
+  }
+}
+@media (min-width: 861px) {
+  .sidebar .role .sep {
+    display: none;
+  }
+  .page-foot .univer-logo {
+    display: none;
+  }
+}
+@media print {
+  .sidebar {
+    position: static;
+  }
+  .abstract > p {
+    display: block;
+  }
+}
+
+/* Paper numbers, newest first (academic convention) */
+.paper-title .num {
+  color: var(--muted);
+  font-weight: 400;
+  margin-right: 6px;
+}
