@@ -143,54 +143,53 @@ body {
   display: none;
 }
 .sidebar h1 {
-  font-size: 1.75rem;
+  font-size: 1.6rem;
   letter-spacing: -0.01em;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 .sidebar .role {
   display: block;
   color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.4;
-  margin-bottom: 28px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  margin-bottom: 24px;
 }
 .site-nav li + li {
-  margin-top: 10px;
+  margin-top: 6px;
 }
 .site-nav a {
-  font-size: 1.05rem;
+  font-size: 1rem;
   display: inline-block;
-  padding: 2px 0;
-  border-bottom: 2px solid transparent;
+  padding: 1px 0;
 }
 .site-nav a:hover,
 .site-nav a:focus-visible {
-  text-decoration: none;
-  border-bottom-color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .site-nav a[aria-current="page"] {
   color: var(--text-strong);
   font-weight: 700;
-  border-bottom-color: var(--accent);
+  text-decoration: none;
 }
 .prof-pic {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
   object-position: 50% 15%;
-  margin: 36px 0 20px;
+  margin: 0 0 22px;
 }
 .contact {
-  font-size: 0.95rem;
-  margin-bottom: 28px;
+  font-size: 0.9rem;
+  margin: 28px 0 24px;
   word-break: break-word;
 }
 .contact a {
   color: var(--accent);
 }
 .univer-logo {
-  width: 200px;
+  width: 170px;
 }
 
 /* ---- Right column: content --------------------------------------------- */
@@ -203,11 +202,12 @@ main > h2:first-child,
   margin-top: 0;
 }
 .intro {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #444;
-  max-width: 62ch;
-  margin-bottom: 12px;
+  font-weight: 300;
+  font-size: 1.22rem;
+  line-height: 1.55;
+  color: var(--text-strong);
+  max-width: 56ch;
+  margin: 0 0 8px;
 }
 .section-links {
   display: flex;
@@ -225,12 +225,12 @@ main > h2:first-child,
   color: var(--accent);
 }
 h2 {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
-  margin: 44px 0 18px;
+  margin: 48px 0 20px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--rule);
 }
@@ -257,18 +257,15 @@ h3 {
 
 /* ---- Paper blocks (quiet list: hanging number, dark title, text links) --- */
 .paper {
-  display: grid;
-  grid-template-columns: 2.6em minmax(0, 1fr);
-  column-gap: 10px;
+  position: relative;
   margin-bottom: 26px;
 }
-.paper > * {
-  grid-column: 2;
-}
 .paper > .num {
-  grid-column: 1;
-  grid-row: 1;
-  color: #9a9a9a;
+  position: absolute;
+  left: -3.4em;
+  width: 2.8em;
+  text-align: right;
+  color: #a0a0a0;
   font-size: 1rem;
   line-height: 1.35;
   padding-top: 1px;
@@ -542,7 +539,24 @@ h3 {
     padding: 24px 0 48px;
   }
   .intro {
-    font-size: 1rem;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--text);
+  }
+  .paper {
+    display: grid;
+    grid-template-columns: 2.6em minmax(0, 1fr);
+    column-gap: 10px;
+  }
+  .paper > * {
+    grid-column: 2;
+  }
+  .paper > .num {
+    position: static;
+    grid-column: 1;
+    grid-row: 1;
+    width: auto;
+    text-align: left;
   }
   h2 {
     margin-top: 32px;
