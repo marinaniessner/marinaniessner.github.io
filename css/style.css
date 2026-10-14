@@ -395,8 +395,8 @@ h3 {
 }
 .teaching .courses li {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  column-gap: 32px;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  column-gap: 28px;
   align-items: baseline;
   padding: 7px 0;
   border-bottom: 1px solid #f0f0f0;
@@ -404,23 +404,37 @@ h3 {
 .teaching .courses li:last-child {
   border-bottom: 0;
 }
-.teaching .level {
+.teaching .level,
+.teaching .years {
   color: var(--muted);
   font-size: 0.9rem;
-  text-align: right;
   white-space: nowrap;
 }
-.teaching .caption {
-  margin: 10px 0 0;
+.teaching .years {
+  text-align: right;
+  min-width: 6.5em;
+  font-variant-numeric: tabular-nums;
 }
-@media (max-width: 600px) {
+.teaching .note {
+  grid-column: 1 / -1;
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+@media (max-width: 700px) {
   .teaching .courses li {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr auto;
     row-gap: 1px;
   }
+  .teaching .course {
+    grid-column: 1 / -1;
+  }
   .teaching .level {
-    text-align: left;
     white-space: normal;
+  }
+  .teaching .years {
+    min-width: 0;
   }
 }
 
