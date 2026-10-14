@@ -249,6 +249,11 @@ h3 {
 .prose li {
   margin-bottom: 0.35em;
 }
+.prose .teaching-list,
+.prose .press-list {
+  list-style: none;
+  padding-left: 0;
+}
 
 /* ---- Paper blocks (quiet list: hanging number, dark title, text links) --- */
 .paper {
@@ -307,11 +312,8 @@ h3 {
   text-decoration-color: var(--accent);
 }
 .status {
+  display: block;
   color: #8a5a00;
-}
-.status::before {
-  content: "· ";
-  color: #bbb;
 }
 .paper-links {
   display: flex;
@@ -362,7 +364,7 @@ h3 {
 /* ---- Press & teaching lists --------------------------------------------- */
 .press-list li,
 .teaching-list li {
-  padding: 8px 0;
+  padding: 10px 0;
   border-bottom: 1px solid var(--rule);
   font-size: 0.95rem;
 }
