@@ -35,12 +35,13 @@
   --accent-soft: #e8f1f7;
   --text: #37474f;          /* body: blue-grey instead of neutral grey */
   --text-strong: #1b3a57;   /* headings, titles, name: deep navy instead of black */
-  --muted: #6b7b8a;         /* secondary text */
-  --faint: #9fb0bf;         /* paper numbers */
+  --muted: #5f6f7e;         /* secondary text, 5:1 on white */
+  --faint: #8c9cab;         /* paper numbers */
   --rule: #e1e8ee;
   --panel: #f3f7fa;
   --font: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --sidebar-w: 260px;
+  --content-w: 660px; /* ~72 characters at body size */
   --gutter: 24px;
 }
 
@@ -88,6 +89,19 @@ a:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+.prose p a,
+.intro a,
+.caption a,
+.cite a {
+  text-decoration: underline;
+  text-decoration-color: #c9d8e4;
+  text-underline-offset: 3px;
+}
+.prose p a:hover,
+.caption a:hover,
+.cite a:hover {
+  text-decoration-color: currentColor;
+}
 hr {
   border: 0;
   border-top: 1px solid var(--rule);
@@ -122,11 +136,11 @@ strong {
 
 /* ---- Page layout -------------------------------------------------------- */
 body {
-  max-width: 1100px;
+  max-width: calc(var(--sidebar-w) + 64px + var(--content-w) + 2 * var(--gutter));
   margin: 0 auto;
   padding: 0 var(--gutter);
   display: grid;
-  grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+  grid-template-columns: var(--sidebar-w) minmax(0, var(--content-w));
   column-gap: 64px;
 }
 
@@ -179,12 +193,12 @@ body {
   border-radius: 50%;
   object-fit: cover;
   object-position: 50% 15%;
-  margin: 0 0 22px;
+  margin: 0 0 24px;
   box-shadow: 0 0 0 1px var(--rule); /* hairline ring so the photo's pale backdrop reads as intended */
 }
 .contact {
   font-size: 0.9rem;
-  margin: 28px 0 24px;
+  margin: 32px 0 24px;
   word-break: break-word;
 }
 .contact a {
@@ -212,7 +226,7 @@ main > h2:first-child,
   text-transform: none;
   padding-bottom: 0;
   border-bottom: 0;
-  margin: -3px 0 20px; /* optical: cap height level with the photo's top edge */
+  margin: -3px 0 24px; /* optical: cap height level with the photo's top edge */
 }
 .intro {
   font-size: 1.06rem;
@@ -240,8 +254,8 @@ h2 {
   font-weight: 400; /* regular weight: distinct from the bold paper titles without another colour */
   line-height: 1.2;
   color: var(--text-strong);
-  margin: 56px 0 26px;
-  padding-bottom: 10px;
+  margin: 56px 0 24px;
+  padding-bottom: 8px;
   border-bottom: 1px solid var(--rule);
 }
 h3 {
@@ -398,7 +412,7 @@ h3 {
 }
 .teaching .page-title,
 .prose .page-title {
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 .teaching .school h3 {
   font-size: 1.12rem;
