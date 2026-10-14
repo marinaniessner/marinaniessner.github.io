@@ -36,7 +36,7 @@
   --text: #37474f;          /* body: blue-grey instead of neutral grey */
   --text-strong: #1b3a57;   /* headings, titles, name: deep navy instead of black */
   --muted: #5f6f7e;         /* secondary text, 5:1 on white */
-  --faint: #8c9cab;         /* paper numbers */
+  --faint: #7a8b9b;         /* paper numbers, 3.6:1 */
   --rule: #e1e8ee;
   --panel: #f3f7fa;
   --font: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -133,6 +133,9 @@ strong {
   color: var(--muted);
   font-size: 0.9rem;
 }
+.caption a {
+  font-weight: 400;
+}
 
 /* ---- Page layout -------------------------------------------------------- */
 body {
@@ -165,7 +168,7 @@ body {
 .sidebar .role {
   display: block;
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   line-height: 1.45;
   margin-bottom: 24px;
 }
@@ -259,7 +262,7 @@ h2 {
   border-bottom: 1px solid var(--rule);
 }
 h3 {
-  font-size: 1.12rem;
+  font-size: 1.2rem;
   margin: 32px 0 8px;
 }
 .prose p {
@@ -309,12 +312,12 @@ h3 {
   text-decoration: none;
 }
 .paper-authors {
-  font-size: 0.97rem;
+  font-size: 0.95rem;
   color: var(--text);
   margin-bottom: 3px;
 }
 .paper-meta {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--muted);
   margin-bottom: 6px;
 }
@@ -338,14 +341,14 @@ h3 {
 .paper-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0 14px;
-  font-size: 0.88rem;
+  gap: 0 16px;
+  font-size: 0.9rem;
 }
 
 /* Text links: SSRN / Journal / Data and the Abstract toggle share one style */
 .btn,
 .abstract > summary {
-  font: 400 0.88rem/1.5 var(--font);
+  font: 400 0.9rem/1.5 var(--font);
   color: var(--accent);
   cursor: pointer;
   text-decoration: none;
@@ -376,7 +379,7 @@ h3 {
   background: var(--panel);
   border-left: 3px solid var(--accent);
   border-radius: 0 4px 4px 0;
-  font-size: 0.93rem;
+  font-size: 0.95rem;
   line-height: 1.55;
   color: var(--text);
 }
@@ -395,7 +398,7 @@ h3 {
 .press-list .outlet,
 .teaching-list .school {
   font-weight: 700;
-  font-size: 1.02rem;
+  font-size: 1rem;
   color: var(--text-strong);
 }
 .press-list .headline {
@@ -451,7 +454,7 @@ h3 {
 .teaching .note {
   grid-area: note;
   font-weight: 300;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--muted);
   margin-top: 2px;
 }
@@ -473,7 +476,7 @@ h3 {
   background: var(--panel);
   border-left: 3px solid var(--accent);
   border-radius: 0 4px 4px 0;
-  font-size: 0.93rem;
+  font-size: 0.95rem;
   line-height: 1.55;
 }
 
@@ -517,7 +520,7 @@ h3 {
   }
   .sidebar .role {
     grid-area: role;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     margin: 2px 0 0;
     align-self: start;
   }
@@ -544,11 +547,11 @@ h3 {
     margin-top: 0;
   }
   .site-nav a {
-    font-size: 0.98rem;
+    font-size: 1rem;
   }
   .contact {
     grid-area: contact;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     margin: 10px 0 0;
   }
   .univer-logo {
@@ -569,6 +572,9 @@ h3 {
   .paper-title {
     font-size: 1.1rem;
     line-height: 1.5rem;
+  }
+  h3 {
+    font-size: 1.1rem; /* same tier as paper titles on phones */
   }
   .paper {
     display: grid;
