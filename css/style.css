@@ -385,6 +385,45 @@ h3 {
   color: var(--text);
 }
 
+/* ---- Teaching page ------------------------------------------------------ */
+.teaching .school {
+  margin-bottom: 40px;
+}
+.teaching .school h3 {
+  font-size: 1.05rem;
+  margin: 0 0 8px;
+}
+.teaching .courses li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 32px;
+  align-items: baseline;
+  padding: 7px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.teaching .courses li:last-child {
+  border-bottom: 0;
+}
+.teaching .level {
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: right;
+  white-space: nowrap;
+}
+.teaching .caption {
+  margin: 10px 0 0;
+}
+@media (max-width: 600px) {
+  .teaching .courses li {
+    grid-template-columns: 1fr;
+    row-gap: 1px;
+  }
+  .teaching .level {
+    text-align: left;
+    white-space: normal;
+  }
+}
+
 /* ---- Data page ---------------------------------------------------------- */
 .data-links {
   display: flex;
