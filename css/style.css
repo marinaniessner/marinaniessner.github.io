@@ -203,10 +203,11 @@ main > h2:first-child,
   margin-top: 0;
 }
 .intro {
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.6;
-  color: var(--text);
-  margin-bottom: 20px;
+  color: #444;
+  max-width: 62ch;
+  margin-bottom: 12px;
 }
 .section-links {
   display: flex;
@@ -224,8 +225,12 @@ main > h2:first-child,
   color: var(--accent);
 }
 h2 {
-  font-size: 1.35rem;
-  margin: 44px 0 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 44px 0 18px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--rule);
 }
@@ -245,88 +250,92 @@ h3 {
   margin-bottom: 0.35em;
 }
 
-/* ---- Paper blocks ------------------------------------------------------- */
+/* ---- Paper blocks (quiet list: hanging number, dark title, text links) --- */
 .paper {
+  display: grid;
+  grid-template-columns: 2.6em minmax(0, 1fr);
+  column-gap: 10px;
   margin-bottom: 26px;
+}
+.paper > * {
+  grid-column: 2;
+}
+.paper > .num {
+  grid-column: 1;
+  grid-row: 1;
+  color: #9a9a9a;
+  font-size: 1rem;
+  line-height: 1.35;
+  padding-top: 1px;
 }
 .paper-title {
   font-size: 1.08rem;
   font-weight: 700;
-  line-height: 1.3;
-  margin-bottom: 4px;
+  line-height: 1.35;
+  margin: 0 0 2px;
+  color: var(--text-strong);
 }
 .paper-title a {
+  color: var(--text-strong);
+}
+.paper-title a:hover,
+.paper-title a:focus-visible {
   color: var(--accent);
+  text-decoration: none;
 }
 .paper-authors {
-  color: var(--text);
   font-size: 0.95rem;
-  margin-bottom: 4px;
+  color: #555;
+  margin-bottom: 2px;
 }
 .paper-meta {
   font-size: 0.92rem;
   color: var(--muted);
-  margin-bottom: 8px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 4px 8px;
+  margin-bottom: 4px;
 }
 .paper-meta .venue {
   font-style: italic;
 }
 .paper-meta .venue a {
   color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: #ccc;
+  text-underline-offset: 3px;
 }
 .paper-meta .venue a:hover {
   color: var(--accent);
+  text-decoration-color: var(--accent);
 }
-.tag {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--accent-dark);
-  background: var(--accent-soft);
-  border-radius: 3px;
-  padding: 2px 7px;
-  line-height: 1.4;
-  font-style: normal;
+.status {
+  color: #8a5a00;
+}
+.status::before {
+  content: "· ";
+  color: #bbb;
 }
 .paper-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  align-items: flex-start;
+  gap: 0 14px;
+  font-size: 0.88rem;
 }
 
-/* Small buttons: SSRN / journal / data links and the Abstract toggle share one style */
+/* Text links: SSRN / Journal / Data and the Abstract toggle share one style */
 .btn,
 .abstract > summary {
-  display: inline-block;
-  font: 700 0.78rem/1.2 var(--font);
-  letter-spacing: 0.02em;
+  font: 400 0.88rem/1.5 var(--font);
   color: var(--accent);
-  background: #fff;
-  border: 1px solid #c9d6e0;
-  border-radius: 4px;
-  padding: 5px 10px;
   cursor: pointer;
   text-decoration: none;
-  white-space: nowrap;
 }
 .btn:hover,
 .btn:focus-visible,
 .abstract > summary:hover,
 .abstract > summary:focus-visible {
-  background: var(--accent-soft);
-  border-color: var(--accent);
-  color: var(--accent-dark);
-  text-decoration: none;
+  text-decoration: underline;
 }
 .abstract {
-  display: contents; /* the summary sits in the button row; the text drops below */
+  display: contents; /* the summary sits in the link row; the text drops below */
 }
 .abstract > summary {
   list-style: none;
@@ -334,24 +343,13 @@ h3 {
 .abstract > summary::-webkit-details-marker {
   display: none;
 }
-.abstract > summary::before {
-  content: "+";
-  display: inline-block;
-  width: 1em;
-  font-weight: 700;
-}
-.abstract[open] > summary::before {
-  content: "–";
-}
 .abstract[open] > summary {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
+  color: var(--text-strong);
 }
 .abstract > p {
   flex-basis: 100%;
   width: 100%;
-  margin: 6px 0 0;
+  margin: 8px 0 0;
   padding: 12px 16px;
   background: var(--panel);
   border-left: 3px solid var(--accent);
@@ -389,8 +387,12 @@ h3 {
 .data-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 10px 0 18px;
+  gap: 0 16px;
+  margin: 4px 0 18px;
+  font-size: 0.95rem;
+}
+.data-links .btn {
+  font-size: 0.95rem;
 }
 .cite {
   padding-left: 14px;
@@ -509,11 +511,4 @@ h3 {
   .abstract > p {
     display: block;
   }
-}
-
-/* Paper numbers, newest first (academic convention) */
-.paper-title .num {
-  color: var(--muted);
-  font-weight: 400;
-  margin-right: 6px;
 }
