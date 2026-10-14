@@ -30,14 +30,15 @@
 
 /* ---- Design tokens ------------------------------------------------------ */
 :root {
-  --accent: #00629b;
-  --accent-dark: #004a75;
+  --accent: #00629b;        /* links */
+  --accent-dark: #004a75;   /* link hover */
   --accent-soft: #e8f1f7;
-  --text: #333;
-  --text-strong: #1f1f1f;
-  --muted: #666;
-  --rule: #e4e7ea;
-  --panel: #f5f7f9;
+  --text: #37474f;          /* body: blue-grey instead of neutral grey */
+  --text-strong: #1b3a57;   /* headings, titles, name: deep navy instead of black */
+  --muted: #6b7b8a;         /* secondary text */
+  --faint: #9fb0bf;         /* paper numbers */
+  --rule: #e1e8ee;
+  --panel: #f3f7fa;
   --font: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --sidebar-w: 260px;
   --gutter: 24px;
@@ -214,7 +215,7 @@ main > h2:first-child,
 .intro {
   font-size: 1.06rem;
   line-height: 1.65;
-  color: #444;
+  color: var(--text);
   margin: 0 0 8px;
 }
 .section-links {
@@ -272,7 +273,7 @@ h3 {
   left: -3.6em;
   width: 3em;
   text-align: right;
-  color: #a3a3a3;
+  color: var(--faint);
   font-size: 0.95rem;
   line-height: 1.6rem; /* matches the title's line box so the number sits on its baseline */
 }
@@ -293,7 +294,7 @@ h3 {
 }
 .paper-authors {
   font-size: 0.97rem;
-  color: #555;
+  color: var(--text);
   margin-bottom: 3px;
 }
 .paper-meta {
@@ -307,7 +308,7 @@ h3 {
 .paper-meta .venue a {
   color: var(--muted);
   text-decoration: underline;
-  text-decoration-color: #ccc;
+  text-decoration-color: #c9d8e4;
   text-underline-offset: 3px;
 }
 .paper-meta .venue a:hover {
@@ -316,7 +317,7 @@ h3 {
 }
 .status {
   display: block;
-  color: #8a5a00;
+  color: var(--text);
 }
 .paper-links {
   display: flex;
@@ -407,7 +408,7 @@ h3 {
   column-gap: 28px;
   align-items: baseline;
   padding: 7px 0;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--rule);
 }
 .teaching .courses li:last-child {
   border-bottom: 0;
@@ -459,7 +460,7 @@ h3 {
 }
 .cite {
   padding-left: 14px;
-  border-left: 3px solid var(--rule);
+  border-left: 3px solid #c9d8e4;
   margin: 8px 0 18px;
   font-size: 0.95rem;
 }
