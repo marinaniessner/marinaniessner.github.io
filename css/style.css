@@ -144,7 +144,7 @@ body {
   display: none;
 }
 .sidebar h1 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   letter-spacing: -0.01em;
   margin-bottom: 4px;
 }
@@ -180,6 +180,7 @@ body {
   object-fit: cover;
   object-position: 50% 15%;
   margin: 0 0 22px;
+  box-shadow: 0 0 0 1px var(--rule); /* hairline ring so the photo's pale backdrop reads as intended */
 }
 .contact {
   font-size: 0.9rem;
@@ -203,7 +204,7 @@ main > h2:first-child,
   margin-top: 0;
 }
 .page-title {
-  font-size: 1.75rem;
+  font-size: 1.6rem;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.01em;
